@@ -1,8 +1,9 @@
 <h1>Couch Paint</h1>
 
+
 <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="600px" viewBox="0 0 80 60">
   <g {{action 'paint'}}>
-    {{svg-rects rects=model }}
+    {{#if showRects}}{{svg-rects rects=model }}{{/if}}
   </g>
 </svg>
 

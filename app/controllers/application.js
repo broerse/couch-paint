@@ -24,6 +24,11 @@ export default Controller.extend({
   //   }
   //   return rects;
   // }),
+
+  showRects: computed('model.[]', function() {
+    return this.get('model.length') >= 4800;
+  }),
+
   toHex (c) {
     let hex = c.toString(16);
     while (hex.length < 6 ){
