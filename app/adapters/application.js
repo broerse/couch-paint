@@ -7,8 +7,8 @@ import { inject as service } from '@ember/service';
 
 export default Adapter.extend({
 
-  cloudState: service(),
-  refreshIndicator: service(),
+  // cloudState: service(),
+  // refreshIndicator: service(),
 
   init() {
     this._super(...arguments);
@@ -35,7 +35,7 @@ export default Adapter.extend({
       };
 
       db.replicate.from(remoteDb, replicationOptions).on('paused', (err) => {
-        this.cloudState.setPull(!err);
+//        this.cloudState.setPull(!err);
       });
 
       db.replicate.to(remoteDb, replicationOptions).on('denied', (err) => {
@@ -44,7 +44,7 @@ export default Adapter.extend({
           throw({message: "Replication failed."});//prevent doc from being marked replicated
         }
       }).on('paused',(err) => {
-        this.cloudState.setPush(!err);
+//        this.cloudState.setPush(!err);
       }).on('error',() => {
 
       });
@@ -56,7 +56,7 @@ export default Adapter.extend({
   },
 
   unloadedDocumentChanged: function(obj) {
-    this.refreshIndicator.kickSpin();
+//    this.refreshIndicator.kickSpin();
 
     let store = this.store;
     let recordTypeName = this.getRecordTypeName(store.modelFor(obj.type));

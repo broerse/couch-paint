@@ -47,7 +47,7 @@ module.exports = function(environment) {
   ENV.local_couch = 'paint';
   ENV.authAdapter = 'application';
   if (environment === 'production') {
-    ENV.rootURL = '/';
+    ENV.rootURL = '/paint/_design/couch-paint/_rewrite/';
     ENV.remote_couch = 'https://my.couchcluster.com/paint';
   }
   if ( ENV.remote_couch ) {

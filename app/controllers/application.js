@@ -58,14 +58,21 @@ export default Controller.extend({
 
   actions: {
     paint: function() {
-      console.log(event.offsetX);
-      console.log(event.offsetY);
-      console.log(event.srcElement.attributes[0].value);
-      let x =  Math.floor(event.offsetX/10);
-      let y = Math.floor(event.offsetY/10);
+      let svg = event.srcElement.farthestViewportElement.getBoundingClientRect();
+      let offsetX = event.clientX - svg.left;
+      let offsetY = event.clientY - svg.top;
+
+      console.log('OffsetCalc', offsetX, offsetY );
+      console.log('nonFirefox', event.offsetX, event.offsetY);
+
+      let x =  Math.floor(offsetX/10);
+      let y = Math.floor(offsetY/10);
+
       let id = x + '-' + y;
       let fill = this.get('color');
+
       console.log(x,y,fill);
+
       this.store.findRecord('rect', id).then(function(rect) {
         rect.set('x', x);
         rect.set('y', y);

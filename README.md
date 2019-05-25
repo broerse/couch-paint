@@ -3,6 +3,13 @@
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
+
+
+## Working example
+
+[https://my.couchcluster.com/paint/_design/couch-paint/_rewrite/](https://my.couchcluster.com/paint/_design/couch-paint/_rewrite/)
+
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
@@ -46,10 +53,16 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+To deploy to your CouchDB cluster
+
+* `ember deploy production` (Set your credentials in the `.env.deploy.production` file
+
+For the free [CloudStation](https://cloudstation.com) you have to create an User and a Database and specify them in this file.
+Also change the database in ember config from 'paint' to your database name.
 
 ## Further Reading / Useful Links
 
+* [ember-pouch](https://github.com/pouchdb-community/ember-pouch)
 * [ember.js](https://emberjs.com/)
 * [ember-cli](https://ember-cli.com/)
 * Development Browser Extensions
