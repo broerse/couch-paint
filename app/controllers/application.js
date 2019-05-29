@@ -63,15 +63,8 @@ export default Controller.extend({
 
   actions: {
     paint: function() {
-      let svg = event.srcElement.farthestViewportElement.getBoundingClientRect();
-      let offsetX = event.clientX - svg.left;
-      let offsetY = event.clientY - svg.top;
-
-      console.log('OffsetCalc', offsetX, offsetY );
-      console.log('nonFirefox', event.offsetX, event.offsetY);
-
-      let x =  Math.floor(offsetX/10);
-      let y = Math.floor(offsetY/10);
+      let x = event.target.attributes.x.value;
+      let y = event.target.attributes.y.value;
 
       let id = x + '-' + y;
       let fill = this.get('color');
@@ -87,7 +80,7 @@ export default Controller.extend({
     },
 
     pick: function(){
-      this.set('color',event.srcElement.attributes[0].value);
+      this.set('color',event.target.attributes.fill.value);
     }
 
   }
